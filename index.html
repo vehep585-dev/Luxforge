@@ -923,5 +923,16 @@ footer{background:#1C2D6E;border-top:1px solid rgba(255,255,255,0.08);font-famil
   render('home');
 })();
 </script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
